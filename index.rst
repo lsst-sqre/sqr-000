@@ -37,4 +37,36 @@
 
    Feel free to delete this instructional comment.
 
-Write the docs; right here.
+Technical notes (hereafter, *technotes*) are a new documentation medium for `LSST Data Management <http://dm.lsst.org>`_ staff to publish stand-alone documents that are native to the web.
+Technotes are written in reStructuredText, version controlled on GitHub, built with the same stack as DM's software documentation, and made universally citeable `digital object identifiers (DOIs) <http://www.doi.org>`_ through Zenodo_.
+
+This document describes the Technote platform and will be updated as the platform evolves.
+
+DM team members can create a new technote today by following the instructions at https://github.com/lsst-sqre/lsst-technote-bootstrap
+
+.. _Zenodo: https://zenodo.org
+
+.. _niche:
+
+Technotes' niche in the Data Management communication landscape
+===============================================================
+
+
+
+Proof of concept implementation
+===============================
+
+Roadmap for improvements
+========================
+
+Improved document creation and management automation
+----------------------------------------------------
+
+Improved presentation
+---------------------
+
+A document index
+----------------
+
+Metadata standard
+=================
