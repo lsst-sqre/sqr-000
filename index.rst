@@ -7,6 +7,9 @@ This document describes the Technote platform and will be updated as the platfor
 
 DM team members can create a new technote today by following the instructions at https://github.com/lsst-sqre/lsst-technote-bootstrap
 
+We currently use two technote series. The 'DMTN' is for general use within Data Management.
+The 'SQR' technote series is used for SQuaRE science quality verification and infrastructure work.
+
 .. _Zenodo: https://zenodo.org
 
 .. _niche:
@@ -94,10 +97,73 @@ DOIs allow technotes to be easily cited in scientific literature.
 The benefit of a citeable-trail of DM implementation work is that LSST publications can more accurately describe DM's engineering work.
 We use Zenodo_ as an archive and DOI provider, taking advantage of its GitHub integration.
 
+Technotes are versioned
+-----------------------
+
+Unlike scientific publications that are published once, technotes can and should be updated when appropriate.
+The full version history is maintained by git and published on GitHub.
+
 .. _implementation:
 
 Proof of concept implementation
 ===============================
+
+We released a mininum-viable product for creating publishing tech notes.
+Authors can create a technote by following the instructions at https://github.com/lsst-sqre/lsst-technote-bootstrap.
+
+.. _lsst-technote-bootstrap: https://github.com/lsst-sqre/lsst-technote-bootstrap
+.. _cookiecutter: http://cookiecutter.rtfd.org/
+.. _Jinja2: http://jinja.pocoo.org
+
+Project Automation
+------------------
+
+`lsst-technote-bootstrap`_ is built around the cookiecutter_ Python project.
+cookiecutter_ allows code *projects* to be templated in the Jinja2_ template language.
+Everything about the project can be templated: file contents, file names, and even directory structures.
+By running
+
+.. code-block:: bash
+
+   cookiecutter https://github.com/lsst-sqre/lsst-technote-bootstrap.git
+
+the author is prompted to answer questions that configure the document.
+When that is done, the author is left with a working Sphinx-based documentation project that can be immediately built with a ``make html`` command.
+This level of configuration automation is crucial to the adoption of tech notes, and :ref:`we intend to only increase this level of automation <roadmap>`.
+
+Document Build Configuration and Metadata
+-----------------------------------------
+
+The Sphinx project prepared by `lsst-technote-bootstrap`_ appears conventional with the exception of how the Sphinx build is configured.
+Most Sphinx projects have extensive ``conf.py`` files, which are ``execfile()``'d Python code that configure Sphinx and prepare the data available to document templates.
+The Sphinx ``conf.py`` posed a maintenance threat to technotes: any infrastructural change to the Sphinx build system for technotes would require edits to the ``conf.py`` files of every technote and DM design document.
+Our solution was to strip nearly all logic from the ``conf.py`` files, and centralize all configuration management in our documenteer_ Python package.
+Now, single commits to documenteer_ are effectively deployed instantly to all technotes.
+
+Of course, individual technotes need custom configuration, such as title and authorship information.
+We keep this in a ``metadata.yaml`` file in each technote repository.
+By effectively refactoring metadata out of both ``conf.py`` *and* the reStructuredText content, it is easy to develop a standardized schema for describing technotes.
+See :ref:`metadata`.
+Such a schema opens opportunities for indexing DM's technote library.
+
+Deployment
+----------
+
+GitHub is the central infrastructure for hosting technotes.
+The ``master`` branch is considered a live publication, but 'releases' can be made as well using git tags or the GitHub release feature.
+
+Technotes are published on `Read the Docs`_ a free and open-source platform for publishing Sphinx-based documentation, such as technotes.
+`Read the Docs`_ integrates with GitHub to rebuild the technote's webpage whenever commits are pushed to the technote's ``master`` branch on GitHub.
+We serve technotes as a subdomain of ``lsst.io``, e.g., http://sqr-000.lsst.io.
+
+.. _`Read the docs`: http://readthedocs.org
+
+Finally, major versions of the technote can be granted DOIs.
+The technote repository can be connected to Zenodo_.
+When a major version of a technote is completed, a GitHub Release can be made, and the contents of the technote repository are uploaded and archived on Zenodo_.
+`Following our instructions <https://github.com/lsst-sqre/lsst-technote-bootstrap/blob/master/README.rst#7-get-a-doi-with-zenodo>`_, a citeable DOI can be conveniently obtained.
+
+.. _roadmap:
 
 Roadmap for improvements
 ========================
@@ -110,6 +176,8 @@ Improved presentation
 
 A document index
 ----------------
+
+.. _metadata:
 
 Metadata standard
 =================
