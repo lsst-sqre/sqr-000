@@ -1,42 +1,3 @@
-..
-  Content of technical report.
-
-  See http://docs.lsst.codes/en/latest/development/docs/rst_styleguide.html
-  for a guide to reStructuredText writing.
-
-  Do not put the title, authors or other metadata in this document;
-  those are automatically added.
-
-  Use the following syntax for sections:
-
-  Sections
-  ========
-
-  and
-
-  Subsections
-  -----------
-
-  and
-
-  Subsubsections
-  ^^^^^^^^^^^^^^
-
-  To add images, add the image file (png, svg or jpeg preferred) to the
-  _static/ directory. The reST syntax for adding the image is
-
-  .. figure:: /_static/filename.ext
-     :name: fig-label
-     :target: http://target.link/url
-
-     Caption text.
-
-   Run: ``make html`` and ``open _build/html/index.html`` to preview your work.
-   See the README at https://github.com/lsst-sqre/lsst-report-bootstrap or
-   this repo's README for more info.
-
-   Feel free to delete this instructional comment.
-
 Technical notes (hereafter, *technotes*) are a new documentation medium for `LSST Data Management <http://dm.lsst.org>`_ staff to publish stand-alone documents that are native to the web.
 Technotes are written in reStructuredText, version controlled on GitHub, built with the same stack as DM's software documentation, and made universally citeable `digital object identifiers (DOIs) <http://www.doi.org>`_ through Zenodo_.
 
@@ -51,6 +12,42 @@ DM team members can create a new technote today by following the instructions at
 Technotes' niche in the Data Management communication landscape
 ===============================================================
 
+DM already has a myriad of communication channels.
+For conversations we use HipChat in real-time, and the `Community forum`_ for asynchronous long-form discussions, notices and community engagement.
+We track work on JIRA.
+We document our code in software docs (the platform for which is being re-imagined by SQuaRE).
+We describe the design and architecture of the DM subsystem in change-controlled design documents.
+We publish articles in journals and conference proceedings where appropriate.
+Finally, we have several Confluence wikis that traditionally served as a catch-all for DM documentation.
+Despite this array of platforms, a use case was still unserved this technote platform was born organically to meet that need.
+
+In SQuaRE, the Science Quality and Reliability Engineering, group, we realized that we often wanted to write stand-alone documents to describe our work.
+These documents didn't fit the conversational nature of `Community forum`_ topics, nor did they qualify for DM's change-controlled design document series, or fit into academic journals or the `arXiv`.
+Traditionally, Confluence was meant to fill this niche, and indeed, the wikis are well used by DM.
+In practice, however, wikis have served DM poorly.
+Confluence pages are hard to find and discover.
+The editing and version control experience is also clumsy from the perspective of DM developers used to working on GitHub.
+
+In the fall of 2015, we experimented with moving several DM design documents from Word documents and stored on Docushare to documents that are written in reStructuredText, built with Sphinx, hosted on GitHub, and deployed to the web with Read the Docs.
+The impetus behind the transition was that documents written in plain text and hosted on GitHub were far more likely to be kept up-to-date by DM developers.
+
+Technotes were thus built on the same technology stack as the reStructuredText-based design documents, but re-purposed for general use by DM team members.\ [#]_ 
+
+.. [#] In fact, this technote applies equally to describing the new reStructuredText-based design document platform as it does the technote platform. The only meaningful difference is that design documents must be approved by a control board, and are ultimately deposited in LSST's Docushare.
+
+Some of the possible applications for technotes are:
+
+- to report the results of a project, such as a data processing or software development experiment,
+- to announce a new technology, serving as a high-level wrapper to software documentation,
+- to propose an architecture, possibly becoming the subject of a request for comment (RFC).
+
+Although there is a clear need for technotes, there may inevitably be uncertainty in deciding which platform should be used for a given piece of content.
+In particular, technotes are not a replacement for user-oriented documentation of software.
+A technote can be written with how-to documentation in support of software experiments, once a software product is fully developed we should strive to provide proper user documentation.
+That said, if the software product is backend infrastructure, a technote describing the product's architecture to DM colleagues along with 'README' files in the code may be entirely sufficient.
+
+.. _Community forum: https://community.lsst.org
+.. _arXiv: http://arxiv.org
 
 
 Proof of concept implementation
