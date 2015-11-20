@@ -171,11 +171,43 @@ Roadmap for improvements
 Improved document creation and management automation
 ----------------------------------------------------
 
+Although lsst-technote-bootstrap_ automates report creation, there are still many facets of technote authorship that would benefit from automation:
+
+#. additional automation of technote configuration, beyond what cookiecutter_ provides (such as dynamic date suggestions)
+#. creation of a GitHub repository
+#. creation and configuration of a Read The Docs project
+#. provisioning of an ``lsst.io`` domain
+#. syntax linting (Travis CI testing)
+#. automation of releases and procurement of DOIs (leveraging ``metadata.yaml`` to automate the technote's deposition on Zenodo_)
+
+This likely demands a command line application to manage technotes, which incorporate lsst-technote-bootstrap_.
+Likely the most challenging aspect will be automating the creation of a Read the Docs project, since project creation is not part of `RTD's API <http://docs.readthedocs.org/en/latest/api.html>`_.
+
 Improved presentation
 ---------------------
 
+Technotes are currently published Read the Doc's default theme, with minor additions to incorporate metadata from ``metadata.yaml``.
+A new HTML/CSS theme is needed to
+
+- establish a visual identity for DM documents
+- provide allowances for navigation in long single page documents
+- add facilities for styling elements created by an extended reStructuredText language (rather than retrofitting an existing theme)
+
+Extensions to reStructuredText
+------------------------------
+
+DM authors need a richer reStructuredText language to for technical writing.
+One request is to implement a bibliographies of the same quality as are possible with LaTeX and natbib.
+We can achieve this by developing Sphinx extensions within the documenteer_ package.
+Development work done here will also benefit DM's software documentation.
+
 A document index
 ----------------
+
+From Docushare and the Confluence wikis, we learned that documentation can be easily buried if not indexed from a central, authoritative, reliable and highly visible place.
+We need to provide a documentation index for DM, likely as part of http://dm.lsst.org.
+The page could be automatically updated by leveraging the GitHub API and individual documents' ``metadata.yaml`` information.
+Ideally, the index would provide facilities for filtering or searching.
 
 .. _metadata:
 
