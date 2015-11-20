@@ -10,8 +10,6 @@ DM team members can create a new technote today by following the instructions at
 We currently use two technote series. The 'DMTN' is for general use within Data Management.
 The 'SQR' technote series is used for SQuaRE science quality verification and infrastructure work.
 
-.. _Zenodo: https://zenodo.org
-
 .. _niche:
 
 Technotes' niche in the Data Management communication landscape
@@ -51,9 +49,6 @@ In particular, technotes are not a replacement for user-oriented documentation o
 A technote can be written with how-to documentation in support of software experiments, once a software product is fully developed we should strive to provide proper user documentation.
 That said, if the software product is backend infrastructure, a technote describing the product's architecture to DM colleagues along with 'README' files in the code may be entirely sufficient.
 
-.. _Community forum: https://community.lsst.org
-.. _arXiv: http://arxiv.org
-
 Technote Platform Design Choices
 =================================
 
@@ -80,8 +75,6 @@ reStructuredText's syntax and build process was designed to be extended, and in 
 Because the Python community has adopted reStructuredText as its official markup language, a our technote platform can take advantage of excellent open source tools, such as the Sphinx build system and the Read the Docs documentation hosting site.
 For these same reasons, reStructuredText and the Sphinx build toolchain are also used by DM's new software documentation platform.
 This allows both documentation platforms to benefit from the same bespoke infrastructure development, such as SQuaRE's `documenteer`_ package.
-
-.. _documenteer: https://github.com/lsst-sqre/documenteer
 
 Technotes are single-page documents
 -----------------------------------
@@ -110,10 +103,6 @@ Proof of concept implementation
 
 We released a mininum-viable product for creating publishing tech notes.
 Authors can create a technote by following the instructions at https://github.com/lsst-sqre/lsst-technote-bootstrap.
-
-.. _lsst-technote-bootstrap: https://github.com/lsst-sqre/lsst-technote-bootstrap
-.. _cookiecutter: http://cookiecutter.rtfd.org/
-.. _Jinja2: http://jinja.pocoo.org
 
 Project Automation
 ------------------
@@ -174,10 +163,11 @@ Improved document creation and management automation
 Although lsst-technote-bootstrap_ automates report creation, there are still many facets of technote authorship that would benefit from automation:
 
 #. additional automation of technote configuration, beyond what cookiecutter_ provides (such as dynamic date suggestions)
-#. creation of a GitHub repository
-#. creation and configuration of a Read The Docs project
+#. creation of a `GitHub`_ repository
+#. creation and configuration of a `Read The Docs`_ project
 #. provisioning of an ``lsst.io`` domain
-#. syntax linting (Travis CI testing)
+#. reStructuredText and metadata linting (using `Travis CI <https://travis-ci.org>`_ testing)
+#. automatic local builds and browser updates (e.g., `Browsersync <http://www.browsersync.io>`_)
 #. automation of releases and procurement of DOIs (leveraging ``metadata.yaml`` to automate the technote's deposition on Zenodo_)
 
 This likely demands a command line application to manage technotes, which incorporate lsst-technote-bootstrap_.
@@ -204,7 +194,7 @@ Development work done here will also benefit DM's software documentation.
 A document index
 ----------------
 
-From Docushare and the Confluence wikis, we learned that documentation can be easily buried if not indexed from a central, authoritative, reliable and highly visible place.
+From experience with Docushare and the Confluence wikis, we learnt that documentation can be easily buried if not indexed from a central, authoritative, reliable and highly visible place.
 We need to provide a documentation index for DM, likely as part of http://dm.lsst.org.
 The page could be automatically updated by leveraging the GitHub API and individual documents' ``metadata.yaml`` information.
 Ideally, the index would provide facilities for filtering or searching.
@@ -213,3 +203,178 @@ Ideally, the index would provide facilities for filtering or searching.
 
 Metadata standard
 =================
+
+Here we document the available keys in the ``metadata.yaml`` schema.
+
+series:
+   A string identifying the technote series.
+   Possible values are ``'DMTN'`` for DM Technotes and ``'SQR'`` for SQuaRE Technotes.
+   Existing change-controlled document series can also be used, such as ``'LDM'``.
+
+   Example:
+
+   .. code-block:: yaml
+
+      series: 'SQR'
+
+series_number:
+   Serial number of the document, as a string.
+   For the DMTN and SQR series we use three digit serial numbers (with leading zeros).
+
+   Example:
+
+   .. code-block:: yaml
+
+      serial_number: '000'
+
+doc_id:
+   **Planned for deprecation.** This is a string that joins ``series`` and ``serial_number`` with a dash.
+    
+   Example:
+
+   .. code-block:: yaml
+
+      doc_id: 'SQR-000'
+
+authors:
+   Author names, ordered as a list.
+   Each author name should be formatted as 'First Last'
+
+   Example:
+
+   .. code-block:: yaml
+
+      authors:
+          - 'Jonathan Sick'
+          - 'Frossie Economou'
+
+   An extended syntax for the ``authors`` key is planned.
+
+version:
+   Version. Use Semvar, e.g., 1.0, including .dev, as necessary
+   This version string should correspond to the git tag when the document is published on Zenodo
+
+   Example of a '1.0' release:
+
+   .. code-block:: yaml
+
+      version: '1.0'
+
+   Example of an early development version:
+
+   .. code-block:: yaml
+
+      version: '0.1.dev'
+
+doi:
+   Digital Object Identifier (DOI).
+   Keep this DOI updated as new releases are pushed to Zenodo_.
+
+   Example:
+
+   .. code-block:: yaml
+
+      doi: '10.5281/zenodo.12345'
+
+   This field can be left commented (or omitted) if a DOI is unavailable:
+
+   .. code-block:: yaml
+
+      # doi: '10.5281/zenodo.#####'
+
+last_revised:
+   Document release date, as ``'YYYY-MM-DD'``.
+
+   Example:
+
+   .. code-block:: yaml
+
+      '2015-11-18'
+
+copyright:
+   Copyright statement.
+
+   Example:
+
+   .. code-block:: yaml
+
+      copyright: '2015, AURA/LSST'
+
+Planned metadata extensions
+---------------------------
+
+We plan to add the following fields to the ``metadata.yaml`` schema.
+
+description:
+   A short 1-2 sentence description for document indices.
+
+abstract:
+   An abstract, if available.
+
+   Example:
+
+   .. code-block:: yaml
+
+      abstract: >
+                Write your paragraph
+                here with multiple lines.
+      
+                You can have multiple paragraphs too.
+
+url:
+   The canonical URL where the document is published by `Read the Docs`_.
+
+   Example:
+
+   .. code-block:: yaml
+
+      url: 'http://sqr-000.github.io'
+
+docushare_url:
+   If a canonical version of the document is archived in Docushare, the URL can be provided.
+
+   Example:
+
+   .. code-block:: yaml
+
+      docushare_url: 'https://docushare.lsstcorp.org/docushare/{{ path }}'
+
+github_url:
+   The document's URL on GitHub.
+
+   Example:
+
+   .. code-block:: yaml
+
+      github_url: 'https://github.com/lsst-sqre/sqr-000'
+
+Leveraging ORCID for Author Information
+---------------------------------------
+
+The current authorship metadata is limited; the ``authors`` key is an ordered list of author names.
+A better way to annotate authorship metadata would be through ORCID_ iDs, which unique identify researchers.
+ORCID_ uses those identifiers to connect people to their work.
+
+A possible revised syntax for declaring authorship metadata would be
+
+.. code-block:: yaml
+
+   authors:
+     -
+       name: Jonathan Sick
+       orcid: 0000-0003-3001-676X
+     -
+       name: Second Author
+       orcid: ####-####-####-####
+
+ORCID_ iD integration would be used to improve the Zenodo_ submission process.
+
+.. _Zenodo: https://zenodo.org
+.. _GitHub: https://github.com
+.. _Community forum: https://community.lsst.org
+.. _arXiv: http://arxiv.org
+.. _documenteer: https://github.com/lsst-sqre/documenteer
+.. _lsst-technote-bootstrap: https://github.com/lsst-sqre/lsst-technote-bootstrap
+.. _cookiecutter: http://cookiecutter.rtfd.org/
+.. _Jinja2: http://jinja.pocoo.org
+.. _ORCID: http://orcid.org/
