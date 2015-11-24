@@ -62,13 +62,13 @@ Technotes are written in reStructuredText
 
 A fundamental requirement of the technote platform is that documents are written in a plain text format, and are then compiled into a website. This way, content is written in common text editors and hosted on GitHub for collaboration (the same workflow we already use for source code).
 Many plain text formats have been invented for writing, however, not all formats are ideal for technotes.
-For example, LaTeX, though common in astronomy, is tied too closely to PDF output and makes little sense for a web-native syntax.
+For example, LaTeX, though common in astronomy, is tied too closely to PDF output and was never meant to be a web-native markup.
 `Markdown <http://daringfireball.net/projects/markdown/>`_ is a hugely popular format among developers, in part because of its intuitive simplicity.
-However, this simplicity has prompted developers to `add non-standard extensions to the format <http://commonmark.org>`_ to their markup to add semantics and style to content.
+However, this simplicity has prompted developers to `add non-standard extensions to the format <http://commonmark.org>`_ to add semantics and style to content.
 
 Instead, reStructuredText_ is an ideal markup format for technotes.
 reStructuredText_\ 's syntax and build process was designed to be extended, and in fact, those extensions are made in DM's primary language, Python.
-Because the Python community has adopted reStructuredText_ as its official markup language (including the scientific and astronomy Python community, led by `NumPy <http://www.numpy.org>`_, `SciPy <http://www.scipy.org>`_, `Matplotlib <http://matplotlib.org>`_ and `AstroPy <http://www.astropy.org>`_), a our technote platform can take advantage of excellent open source tools, such as the Sphinx_ build system and the `Read the Docs`_ documentation hosting site.
+Because the Python community has adopted reStructuredText_ as its official markup language (including the scientific/astronomy Python community, led by `NumPy <http://www.numpy.org>`_, `SciPy <http://www.scipy.org>`_, `Matplotlib <http://matplotlib.org>`_ and `AstroPy <http://www.astropy.org>`_), our technote platform can take advantage of excellent open source tools, such as the Sphinx_ build system and the `Read the Docs`_ documentation hosting site.
 For these same reasons, reStructuredText_ and the Sphinx_ build toolchain are also used by DM's new software documentation platform.
 This allows both documentation platforms to benefit from the same bespoke infrastructure development, such as SQuaRE's documenteer_ package.
 
@@ -89,10 +89,7 @@ We use Zenodo_ as an archive and DOI provider, taking advantage of its GitHub in
 Technotes are versioned
 -----------------------
 
-Traditional scientific publications are published once, and updated only be authoring entirely new publications.
-This necessitates a significant effort to update the literature and also makes it harder for the reader to understand what documents have been deprecated.
-Unlike scientific publications that are published once, technotes can be updated when appropriate.
-Technotes take a software development approach to publication by allowing technotes to be updated in-place when appropriate.
+Technotes take a software development-inspired approach to publishing by allowing technotes to be updated in-place when appropriate.
 The full version history is maintained by git and published on GitHub.
 With GitHub's Zenodo_ integration, new releases are archived through Zenodo and given their own DOI (while also being linked to other versions).
 
@@ -141,7 +138,7 @@ Deployment
 GitHub_ is the central infrastructure for hosting technotes.
 The ``master`` branch is considered a live publication, but 'releases' can be made as well using git tags or the GitHub Release feature.
 
-Technotes are published on `Read the Docs`_ a free and open-source platform for publishing Sphinx_-based documentation, such as technotes.
+Technotes are published on `Read the Docs`_, a free and open-source platform for publishing Sphinx_-based documentation, such as technotes.
 `Read the Docs`_ integrates with GitHub_ to rebuild the technote's webpage whenever commits are pushed to the technote's ``master`` branch on GitHub_.
 We serve technotes as a subdomain of ``lsst.io``, e.g., http://sqr-000.lsst.io.
 
@@ -365,7 +362,7 @@ deprecated:
 
 changes:
    A changelog.
-   The DM design documents currently embed change tables embedded in the content, but this would useful as independent metadata.
+   The DM design documents currently embed change tables in the content, but this would be more useful as independent metadata.
 
    .. code-block:: yaml
 
