@@ -20,11 +20,11 @@ authors:
     - 'Jonathan Sick'
 
 # Current document version
-last_revised: '2015-11-18'
+last_revised: '2015-11-23'
 
 # Version. Use Semvar, e.g., 1.0, including .dev, as necessary
 # This version string should correspond to the git tag when the document is published on Zenodo
-version: '0.1.dev'
+version: '1.0.0'
 
 # Digital Object Identifier (DOI). Uncomment if available.
 # Keep this DOI updated as new releases are pushed to Zenodo
