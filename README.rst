@@ -6,12 +6,10 @@ SQR-000: The LSST DM Technical Note Publishing Platform
 
 View this technote at http://sqr-000.lsst.io
 
+.. image:: https://zenodo.org/badge/doi/10.5281/zenodo.34154.svg
+   :target: http://dx.doi.org/10.5281/zenodo.34154
 
-
-..
-  Uncomment this section and modify the DOI strings to include a Zenodo DOI badge in the README
-  .. image:: https://zenodo.org/badge/doi/10.5281/zenodo.#####.svg
-     :target: http://dx.doi.org/10.5281/zenodo.#####
+.. image:: https://img.shields.io/travis/lsst-sqre/sqr-000.svg
 
 Build this technical note
 =========================
