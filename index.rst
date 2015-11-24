@@ -1,14 +1,14 @@
 :tocdepth: 1
 
-Technical notes (hereafter, *technotes*) are a new documentation medium for `LSST Data Management <http://dm.lsst.org>`_ staff to publish stand-alone documents that are native to the web.
-Technotes are written in reStructuredText, version controlled on GitHub, built with the same stack as DM's software documentation, and made universally citeable with `digital object identifiers (DOIs) <https://en.wikipedia.org/wiki/Digital_object_identifier>`_ provided through Zenodo_.
+Technical notes (hereafter, *technotes*) are a new documentation medium for `LSST Data Management (DM) <http://dm.lsst.org>`_ staff to publish stand-alone documents that are native to the web.
+Technotes are written in reStructuredText_, version controlled on GitHub_, built with the same stack as DM's software documentation, and made universally citeable with `digital object identifiers (DOIs) <https://en.wikipedia.org/wiki/Digital_object_identifier>`_ provided through Zenodo_.
 
 This document describes the Technote platform and will be updated as the platform evolves.
 
-DM team members can create a new technote today by following the instructions at https://github.com/lsst-sqre/lsst-technote-bootstrap
+DM team members can create a new technote today by following the instructions at https://github.com/lsst-sqre/lsst-technote-bootstrap.
 
-We currently use two technote series. The 'DMTN' is for general use within Data Management.
-The 'SQR' technote series is used for SQuaRE science quality verification and infrastructure work.
+We currently use two technote series. The :abbr:`DMTN (Data Management Technote)` is for general use within Data Management.
+The :abbr:`SQR (SQuaRE Technote)` technote series is used for SQuaRE science quality verification and infrastructure work.
 
 .. _niche:
 
@@ -21,22 +21,22 @@ We track work on JIRA.
 We document our code in software docs (the platform for which is being re-imagined by SQuaRE).
 We describe the design and architecture of the DM subsystem in change-controlled design documents.
 We publish articles in journals and conference proceedings where appropriate.
-Finally, we have several Confluence wikis that traditionally served as a catch-all for DM documentation.
+Finally, we have several Confluence_ wikis that traditionally served as a catch-all for DM documentation.
 Despite this array of platforms, a use case was still unserved and this technote platform was conceived to meet that need.
 
 In SQuaRE, the Science Quality and Reliability Engineering group, we realized that we often wanted to write stand-alone documents to describe our work.
 These documents didn't fit the conversational nature of `Community forum`_ topics, nor did they qualify for DM's change-controlled design document series, or fit into academic journals or the arXiv_.
-Traditionally, Confluence was meant to fill this niche, and indeed, the wikis are well used by DM.
+Traditionally, Confluence_ was meant to fill this niche, and indeed, the wikis are well used by DM.
 In practice, however, wikis have served DM poorly.
-Confluence pages are hard to find and discover.
-The editing and version control experience is also clumsy from the perspective of DM developers used to working on GitHub.
+For readers, Confluence pages are hard to find and discover.
+For authors, the editing and version control experience is also clumsy from the perspective of DM developers used to working on GitHub_.
 
-In the fall of 2015, we experimented with moving several DM design documents from Word documents stored on Docushare to documents that are written in `reStructuredText`_, built with `Sphinx`_, hosted on GitHub, and deployed to the web with `Read the Docs`_.
+In the fall of 2015, we experimented with moving several DM design documents from Word documents stored on Docushare_ to documents that are written in reStructuredText_, built with Sphinx_, hosted on GitHub_, and deployed to the web with `Read the Docs`_.
 The impetus behind the transition was that documents written in plain text and hosted on GitHub were far more likely to be kept up-to-date by DM developers.
 
-Technotes were thus built on the same technology stack as the reStructuredText-based design documents, but re-purposed for general use by DM team members.\ [#]_ 
+Technotes were thus built on the same technology stack as the reStructuredText_-based design documents, but re-purposed for general use by DM team members.\ [#]_ 
 
-.. [#] In fact, this technote applies equally to describing the new reStructuredText-based design document platform as it does the technote platform. The only meaningful difference is that design documents must be approved by a control board, and are ultimately deposited in LSST's Docushare.
+.. [#] In fact, this technote applies equally to describing the new reStructuredText_-based design document platform as it does the technote platform. The only meaningful difference is that design documents must be approved by a control board, and are ultimately deposited in LSST's Docushare_.
 
 Some of the possible applications for technotes are:
 
@@ -52,9 +52,10 @@ Although technotes are still in an early, minimally-viable state, (see :ref:`imp
 Technotes are native to the web
 -------------------------------
 
-Although a preponderance of astronomy literature is published as PDFs, and many management documents as Word documents, those formats are archaic solutions from an era when documents were read in print.
-Modern HTML, CSS and JavaScript allow for better, more innovative, and frictionless reading experiences than PDFs and Word documents can provide.
-Modern readers expect to be able to search for content, click a link, and read it immediately in the browser.
+Although a preponderance of astronomy literature is published as PDFs, and many management documents as Word documents, those formats are built on the assumption that documents are read in print.
+These platforms are out of step with modern expectations that documents should be Googleable, linkable, and instantly readable in the browser.
+Modern HTML, CSS, JavaScript, and webfonts are delivering reading experiences that are beginning to surpass the printed page.
+Technotes are built for this modern communication era.
 
 Technotes are written in reStructuredText
 -----------------------------------------
@@ -65,11 +66,11 @@ For example, LaTeX, though common in astronomy, is tied too closely to PDF outpu
 `Markdown <http://daringfireball.net/projects/markdown/>`_ is a hugely popular format among developers, in part because of its intuitive simplicity.
 However, this simplicity has prompted developers to `add non-standard extensions to the format <http://commonmark.org>`_ to their markup to add semantics and style to content.
 
-Instead, reStructuredText is an ideal markup format for technotes.
-reStructuredText's syntax and build process was designed to be extended, and in fact, those extensions are made in DM's primary language, Python.
-Because the Python community has adopted reStructuredText as its official markup language, a our technote platform can take advantage of excellent open source tools, such as the Sphinx build system and the Read the Docs documentation hosting site.
-For these same reasons, reStructuredText and the Sphinx build toolchain are also used by DM's new software documentation platform.
-This allows both documentation platforms to benefit from the same bespoke infrastructure development, such as SQuaRE's `documenteer`_ package.
+Instead, reStructuredText_ is an ideal markup format for technotes.
+reStructuredText_\ 's syntax and build process was designed to be extended, and in fact, those extensions are made in DM's primary language, Python.
+Because the Python community has adopted reStructuredText_ as its official markup language (including the scientific and astronomy Python community, led by `NumPy <http://www.numpy.org>`_, `SciPy <http://www.scipy.org>`_, `Matplotlib <http://matplotlib.org>`_ and `AstroPy <http://www.astropy.org>`_), a our technote platform can take advantage of excellent open source tools, such as the Sphinx_ build system and the `Read the Docs`_ documentation hosting site.
+For these same reasons, reStructuredText_ and the Sphinx_ build toolchain are also used by DM's new software documentation platform.
+This allows both documentation platforms to benefit from the same bespoke infrastructure development, such as SQuaRE's documenteer_ package.
 
 Technotes are single-page documents
 -----------------------------------
@@ -88,15 +89,19 @@ We use Zenodo_ as an archive and DOI provider, taking advantage of its GitHub in
 Technotes are versioned
 -----------------------
 
-Unlike scientific publications that are published once, technotes can and should be updated when appropriate.
+Traditional scientific publications are published once, and updated only be authoring entirely new publications.
+This necessitates a significant effort to update the literature and also makes it harder for the reader to understand what documents have been deprecated.
+Unlike scientific publications that are published once, technotes can be updated when appropriate.
+Technotes take a software development approach to publication by allowing technotes to be updated in-place when appropriate.
 The full version history is maintained by git and published on GitHub.
+With GitHub's Zenodo_ integration, new releases are archived through Zenodo and given their own DOI (while also being linked to other versions).
 
 .. _implementation:
 
 Proof of Concept Implementation
 ===============================
 
-We released a minimum-viable product for creating and publishing technotes.
+We released a tool for creating and publishing technotes.
 Authors can create a technote by following the instructions at https://github.com/lsst-sqre/lsst-technote-bootstrap.
 
 Project automation
@@ -112,35 +117,33 @@ By running
    cookiecutter https://github.com/lsst-sqre/lsst-technote-bootstrap.git
 
 the author is prompted to answer questions that configure the document.
-When that is done, the author is left with a working Sphinx-based documentation project that can be immediately built with a ``make html`` command.
+When that is done, the author is left with a working Sphinx_-based documentation project that can be immediately built with a ``make html`` command.
 This level of configuration automation is crucial to the adoption of tech notes, and :ref:`we intend to only increase this level of automation <roadmap>`.
 
 Document build configuration and metadata
 -----------------------------------------
 
-The Sphinx project prepared by `lsst-technote-bootstrap`_ appears conventional with the exception of how the Sphinx build is configured.
-Most Sphinx projects have extensive ``conf.py`` files, which are ``execfile()``'d Python code that configure Sphinx and prepare the data available to document templates.
-The Sphinx ``conf.py`` posed a maintenance threat to technotes: any infrastructural change to the Sphinx build system for technotes would require edits to the ``conf.py`` files of every technote and DM design document.
-Our solution was to strip nearly all logic from the ``conf.py`` files, and centralize all configuration management in our documenteer_ Python package.
+The Sphinx_ project prepared by `lsst-technote-bootstrap`_ appears conventional with the exception of how the Sphinx_ build is configured.
+Most Sphinx_ projects have extensive :file:`conf.py` files, which are ``execfile()``'d Python code that configure Sphinx_ and prepare the data available to document templates.
+The Sphinx_ :file:`conf.py` posed a maintenance threat to technotes: any infrastructural change to the Sphinx_ build system for technotes would require edits to the :file:`conf.py` files of every technote and DM design document.
+Our solution was to strip nearly all logic from the :file:`conf.py` files, and centralize all configuration management in our documenteer_ Python package.
 Now, single commits to documenteer_ are effectively deployed instantly to all technotes.
 
 Of course, individual technotes need custom configuration, such as title and authorship information.
-We keep this in a ``metadata.yaml`` file in each technote repository.
-By effectively refactoring metadata out of both ``conf.py`` *and* the reStructuredText content, it is easy to develop a standardized schema for describing technotes.
+We keep this in a :file:`metadata.yaml` file in each technote repository.
+By effectively refactoring metadata out of both :file:`conf.py` *and* the reStructuredText_ content, it is easy to develop a standardized schema for describing technotes.
 See :ref:`metadata`.
 Such a schema opens opportunities for indexing DM's technote library.
 
 Deployment
 ----------
 
-GitHub is the central infrastructure for hosting technotes.
-The ``master`` branch is considered a live publication, but 'releases' can be made as well using git tags or the GitHub release feature.
+GitHub_ is the central infrastructure for hosting technotes.
+The ``master`` branch is considered a live publication, but 'releases' can be made as well using git tags or the GitHub Release feature.
 
-Technotes are published on `Read the Docs`_ a free and open-source platform for publishing Sphinx-based documentation, such as technotes.
-`Read the Docs`_ integrates with GitHub to rebuild the technote's webpage whenever commits are pushed to the technote's ``master`` branch on GitHub.
+Technotes are published on `Read the Docs`_ a free and open-source platform for publishing Sphinx_-based documentation, such as technotes.
+`Read the Docs`_ integrates with GitHub_ to rebuild the technote's webpage whenever commits are pushed to the technote's ``master`` branch on GitHub_.
 We serve technotes as a subdomain of ``lsst.io``, e.g., http://sqr-000.lsst.io.
-
-.. _`Read the docs`: http://readthedocs.org
 
 Finally, major versions of the technote can be granted DOIs.
 The technote repository can be connected to Zenodo_.
@@ -158,12 +161,13 @@ Improved document creation and management automation
 Although lsst-technote-bootstrap_ automates report creation, there are still many facets of technote authorship that would benefit from automation:
 
 #. additional automation of technote configuration, beyond what cookiecutter_ provides (such as dynamic date suggestions)
-#. creation of a `GitHub`_ repository
+#. creation of a GitHub_ repository
 #. creation and configuration of a `Read The Docs`_ project
 #. provisioning of an ``lsst.io`` domain
-#. reStructuredText and metadata linting (using `Travis CI <https://travis-ci.org>`_ testing)
+#. reStructuredText_ and metadata linting (using `Travis CI <https://travis-ci.org>`_ testing)
+#. synchronization of metadata version tags and revision dates with git history
 #. automatic local builds and browser updates (e.g., `Browsersync <http://www.browsersync.io>`_)
-#. automation of releases and procurement of DOIs (leveraging ``metadata.yaml`` to automate the technote's deposition on Zenodo_)
+#. automation of releases and procurement of DOIs (leveraging :file:`metadata.yaml` to automate the technote's deposition on Zenodo_)
 
 This likely demands a command line application to manage technotes, which would incorporate lsst-technote-bootstrap_.
 Likely the most challenging aspect will be automating the creation of a `Read the Docs`_ project, since project creation is not part of `RTD's API <http://docs.readthedocs.org/en/latest/api.html>`_.
@@ -171,27 +175,28 @@ Likely the most challenging aspect will be automating the creation of a `Read th
 Improved presentation
 ---------------------
 
-Technotes are currently published with Read the Doc's default theme (including minor additions to incorporate metadata from ``metadata.yaml``).
+Technotes are currently published with Read the Doc's default theme (including minor additions to incorporate metadata from :file:`metadata.yaml`).
 A new HTML/CSS theme is needed to
 
 - establish a visual identity for DM documents
 - provide allowances for navigation in long single page documents
-- add facilities for styling elements created by an extended reStructuredText language (rather than retrofitting an existing theme)
+- add facilities for styling elements created by an extended reStructuredText_ language (rather than retrofitting an existing theme)
+- improve layout for print
 
 Extensions to reStructuredText
 ------------------------------
 
-DM authors need a richer reStructuredText language for technical writing.
-One request is to implement citations and bibliographies of the same quality as are possible with LaTeX and natbib.
-We can achieve this by developing Sphinx extensions within the documenteer_ package.
+DM authors need a richer reStructuredText_ language for technical writing.
+One need is to have citations and bibliographies of the same quality as are possible with LaTeX and `natbib <http://ctan.org/pkg/natbib>`_.
+We can achieve this by developing `Sphinx extensions <http://sphinx-doc.org/extdev/index.html>`_ within the documenteer_ package.
 Development work done here will also benefit DM's software documentation.
 
 A document index
 ----------------
 
-From experience with Docushare and the Confluence wikis, we learnt that documentation can be easily buried if not indexed from a central, authoritative, reliable and highly visible place.
+From experience with Docushare_ and the Confluence_ wikis, we learnt that documentation can be easily buried if not indexed from a central, authoritative, reliable and highly visible place.
 We need to provide a documentation index for DM, likely as part of http://dm.lsst.org.
-The page could be automatically updated by leveraging the GitHub API and individual documents' ``metadata.yaml`` information.
+The page could be automatically updated by leveraging the GitHub_ API and individual documents' :file:`metadata.yaml` information.
 Ideally, the index would provide facilities for filtering or searching.
 
 .. _metadata:
@@ -199,7 +204,7 @@ Ideally, the index would provide facilities for filtering or searching.
 Metadata Standard
 =================
 
-Here we document the available keys in the ``metadata.yaml`` schema.
+Here we document the available keys in the :file:`metadata.yaml` schema.
 
 series:
    A string identifying the technote series.
@@ -214,7 +219,7 @@ series:
 
 series_number:
    Serial number of the document, as a string.
-   For the DMTN and SQR series we use three digit serial numbers (with leading zeros).
+   For the :abbr:`DMTN (Data Management Technote)` and :abbr:`SQR (SQuaRE Technote)` series we use three digit serial numbers (with leading zeros).
 
    Example:
 
@@ -233,7 +238,7 @@ doc_id:
 
 authors:
    Author names, ordered as a list.
-   Each author name should be formatted as 'First Last'
+   Each author name should be formatted as 'First Last'.
 
    Example:
 
@@ -298,7 +303,7 @@ copyright:
 Planned metadata extensions
 ---------------------------
 
-We plan to add the following fields to the ``metadata.yaml`` schema.
+We plan to add the following fields to the :file:`metadata.yaml` schema.
 
 description:
    A short 1-2 sentence description for document indices.
@@ -335,7 +340,7 @@ docushare_url:
       docushare_url: 'https://docushare.lsstcorp.org/docushare/{{ path }}'
 
 github_url:
-   The document's URL on GitHub.
+   The document's URL on GitHub_.
 
    Example:
 
@@ -375,4 +380,6 @@ ORCID_ iD integration would be used to improve the Zenodo_ submission process.
 .. _ORCID: http://orcid.org/
 .. _reStructuredText: http://docutils.sourceforge.net/docs/ref/rst/restructuredtext.html
 .. _Sphinx: http://sphinx-doc.org
-.. _Read the Docs: http://readthedocs.org
+.. _Read the Docs: https://readthedocs.org
+.. _Docushare: https://docushare.lsstcorp.org/docushare/dsweb
+.. _Confluence: https://confluence.lsstcorp.org/
