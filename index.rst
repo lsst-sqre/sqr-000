@@ -399,6 +399,12 @@ A possible revised syntax for declaring authorship metadata would be
 
 ORCID_ iD integration would be used to improve the Zenodo_ submission process.
 
+Acknowlegements
+===============
+
+J. S. would like to thank Frossie Economou, Tim Jenness and Josh Hoblitt for authoring early technotes and providing feedback on the platform.
+Tim Jenness and JMatt Peterson provided valuable editorial feedback on this technote.
+
 .. _Zenodo: https://zenodo.org
 .. _GitHub: https://github.com
 .. _Community forum: https://community.lsst.org
