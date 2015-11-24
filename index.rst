@@ -266,6 +266,8 @@ version:
 
       version: '0.1.dev'
 
+   This metadata may be replaced by tooling that uses git tags.
+
 doi:
    Digital Object Identifier (DOI).
    Keep this DOI updated as new releases are pushed to Zenodo_.
@@ -291,6 +293,8 @@ last_revised:
 
       '2015-11-18'
 
+   This metadata may be replaced by tooling that uses git history.
+
 copyright:
    Copyright statement.
 
@@ -304,6 +308,7 @@ Planned metadata extensions
 ---------------------------
 
 We plan to add the following fields to the :file:`metadata.yaml` schema.
+These metadata fields are not currently in use, and are liable change prior to implementation.
 
 description:
    A short 1-2 sentence description for document indices.
@@ -347,6 +352,31 @@ github_url:
    .. code-block:: yaml
 
       github_url: 'https://github.com/lsst-sqre/sqr-000'
+
+deprecated:
+   This field can be added if the document has been superseded.
+   The deprecation notice may contain several fields, for example:
+
+   .. code-block:: yaml
+
+      deprecated:
+         date: 'YYYY-MM-DD'
+         superseded_by: 'http://{{url of new doc}}'
+
+changes:
+   A changelog.
+   The DM design documents currently embed change tables embedded in the content, but this would useful as independent metadata.
+
+   .. code-block:: yaml
+
+      changes:
+         -
+           tag: v1.0
+           notes: 'First version'
+         -
+           tag: v2.0
+           notes: 'Second version'
+
 
 Leveraging ORCID for Author Information
 ---------------------------------------
