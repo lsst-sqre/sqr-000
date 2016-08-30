@@ -1,6 +1,6 @@
 :tocdepth: 1
 
-Technical notes (hereafter, *technotes*) are a new documentation medium for `LSST Data Management (DM) <http://dm.lsst.org>`_ staff to publish stand-alone documents that are native to the web.
+Technical notes (hereafter, *technotes*) are web-native documents that give `LSST Data Management (DM) <http://dm.lsst.org>`_ staff a standardized, yet flexible, platform to communicate their work.
 Technotes are written in reStructuredText_, version controlled on GitHub_, built with the same stack as DM's software documentation, and made universally citeable with `digital object identifiers (DOIs) <https://en.wikipedia.org/wiki/Digital_object_identifier>`_ provided through Zenodo_.
 
 This document describes the Technote platform and will be updated as the platform evolves.
