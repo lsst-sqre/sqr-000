@@ -1,11 +1,15 @@
-:tocdepth: 1
+##############################################
+The LSST DM Technical Note Publishing Platform
+##############################################
 
-Technical notes (hereafter, *technotes*) are web-native documents that give `LSST Data Management (DM) <http://dm.lsst.org>`_ staff a standardized, yet flexible, platform to communicate their work.
-Technotes are written in reStructuredText_, version controlled on GitHub_, built with the same stack as DM's software documentation, and made universally citeable with `digital object identifiers (DOIs) <https://en.wikipedia.org/wiki/Digital_object_identifier>`_ provided through Zenodo_.
+.. abstract::
+
+   Technical notes (technotes) are web-native documents that give LSST Data Management staff a standardized, yet flexible, platform to communicate their work.
+   Technotes are written in reStructuredText, version controlled on GitHub, build with the same stack as DM's software documentation, and made universally citeable with digitial object identifiers (DOIs) provided through Zenodo.
 
 This document describes the Technote platform and will be updated as the platform evolves.
 
-DM team members can create a new technote today by following the instructions at https://github.com/lsst-sqre/lsst-technote-bootstrap.
+DM team members can create a new technote today by following the instructions in the `DM Developer Guide <https://developer.lsst.io/project-docs/technotes.html>`__.
 
 We currently use two technote series. The :abbr:`DMTN (Data Management Technote)` is for general use within Data Management.
 The :abbr:`SQR (SQuaRE Technote)` technote series is used for SQuaRE science quality verification and infrastructure work.
@@ -34,7 +38,7 @@ For authors, the editing and version control experience is also clumsy from the 
 In the fall of 2015, we experimented with moving several DM design documents from Word documents stored on Docushare_ to documents that are written in reStructuredText_, built with Sphinx_, hosted on GitHub_, and deployed to the web with `Read the Docs`_.
 The impetus behind the transition was that documents written in plain text and hosted on GitHub were far more likely to be kept up-to-date by DM developers.
 
-Technotes were thus built on the same technology stack as the reStructuredText_-based design documents, but re-purposed for general use by DM team members.\ [#]_ 
+Technotes were thus built on the same technology stack as the reStructuredText_-based design documents, but re-purposed for general use by DM team members.\ [#]_
 
 .. [#] In fact, this technote applies equally to describing the new reStructuredText_-based design document platform as it does the technote platform. The only meaningful difference is that design documents must be approved by a control board, and are ultimately deposited in LSST's Docushare_.
 
@@ -226,7 +230,7 @@ series_number:
 
 doc_id:
    **Planned for deprecation.** This is a string that joins ``series`` and ``serial_number`` with a dash.
-    
+
    Example:
 
    .. code-block:: yaml
@@ -320,7 +324,7 @@ abstract:
       abstract: >
                 Write your paragraph
                 here with multiple lines.
-      
+
                 You can have multiple paragraphs too.
 
 url:
