@@ -17,7 +17,7 @@ SQR-000: The LSST DM Technical Note Publishing Platform
 **Links:**
 
 - Publication URL: https://sqr-000.lsst.io/
-- Alternative editions: https://sqr-000.lsst.io//v
+- Alternative editions: https://sqr-000.lsst.io/v
 - GitHub repository: https://github.com/lsst-sqre/sqr-000
 - Build system: https://github.com/lsst-sqre/sqr-000/actions/
 
@@ -42,7 +42,7 @@ Publishing changes to the web
 =============================
 
 This technote is published to https://sqr-000.lsst.io/ whenever you push changes to the ``main`` branch on GitHub.
-When you push changes to a another branch, a preview of the technote is published to https://sqr-000.lsst.io//v.
+When you push changes to a another branch, a preview of the technote is published to https://sqr-000.lsst.io/v.
 
 Editing this technical note
 ===========================
