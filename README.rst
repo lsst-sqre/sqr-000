@@ -1,4 +1,4 @@
-.. image:: https://img.shields.io/badge/-lsst.io-brightgreen.svg
+.. image:: https://img.shields.io/badge/sqr--000-lsst.io-brightgreen.svg
    :target: https://sqr-000.lsst.io/
 .. image:: https://github.com/lsst-sqre/sqr-000/workflows/CI/badge.svg
    :target: https://github.com/lsst-sqre/sqr-000/actions/
